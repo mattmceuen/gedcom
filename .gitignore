@@ -1,0 +1,9 @@
+*.so
+bin/
+
+*.test
+
+*.out
+.coverage/
+
+*.swp
