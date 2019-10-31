@@ -13,10 +13,27 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package main
+package gedcom
 
-import "github.com/mattmceuen/gedcom/gedcom/cmd"
+import (
+	"io"
+)
 
-func main() {
-	cmd.Execute()
+// TODO
+type Reader struct {
+	r io.Reader
+}
+
+// NewReader returns a new Reader that reads from r
+func NewReader(r io.Reader) *Reader {
+	var greader Reader
+	greader.r = r
+	return &greader
+}
+
+// Read the contents of the GEDCOM file into a Genealogy.
+// As not all content is currently readable, any skipped data
+// will be returned in the `warn` slice.
+func (r *Reader) Read() (g *Genealogy, warn []string, err error) {
+	return nil, []string{}, nil
 }
